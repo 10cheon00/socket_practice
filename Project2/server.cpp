@@ -82,6 +82,7 @@ int main() {
 			NULL);
 
 	while (1) {
+		//새로운 클라이언트가 연결될 때마다 새로 소켓을 할당시켜줘야 하기 때문에 계속 만들어서 쓰는 듯하다.
 		SOCKET hClntSock;
 		SOCKADDR_IN clntAddr;
 
