@@ -82,12 +82,12 @@ int main() {
 			NULL);
 
 	while (1) {
-		//새로운 클라이언트가 연결될 때마다 새로 소켓을 할당시켜줘야 하기 때문에 계속 만들어서 쓰는 듯하다.
+		// 새로운 클라이언트가 연결될 때마다 새로 소켓을 할당시켜줘야 하기 때문에 계속 만들어서 쓰는 듯하다.
 		SOCKET hClntSock;
 		SOCKADDR_IN clntAddr;
 
 		int addrLen = sizeof(clntAddr);
-		hClntSock = accept(servSock, (SOCKADDR*)&clntAddr, &addrLen);
+		hClntSock = accept(servSock, (SOCKADDR*)&clntAddr, &addrLen);// 이건 비동기 일텐데??
 		if (hClntSock == SOCKET_ERROR) AlertError("accept() Error!");
 
 		PerHandleData = (LPPER_HANDLE_DATA) new PER_HANDLE_DATA;
