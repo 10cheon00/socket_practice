@@ -73,7 +73,7 @@ int main() {
 	hCompletionPort = CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0, 0);// 이렇게 입력할 경우 새로운 포트를 할당해준다.
 	GetSystemInfo(&sysInfo);// 시스템 정보 받아오기
 
-	for (int i = 0; i < sysInfo.dwNumberOfProcessors; ++i) // CPU 개수만큼 스레드 생성
+	for (int i = 0; i < sysInfo.dwNumberOfProcessors; ++i)// CPU 개수만큼 스레드 생성
 		_beginthreadex(
 			NULL,
 			0,
@@ -95,7 +95,6 @@ int main() {
 		PerHandleData = (LPPER_HANDLE_DATA) new PER_HANDLE_DATA;
 		PerHandleData->hClntSock = hClntSock;
 		memcpy(&(PerHandleData->clntAddr), &clntAddr, addrLen);
-
 
 		CreateIoCompletionPort(
 			(HANDLE)hClntSock,		// 연결하고자 하는 overlapped형태의 소켓
